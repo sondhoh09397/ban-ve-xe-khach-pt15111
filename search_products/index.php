@@ -39,16 +39,16 @@ $allData = queryExecute($getAllDataQuery, true);
     <title>Bán vé xe khách - Danh sách vé</title>
 </head>
 
-<body>
+<body class="bg-light">
     <?php include_once '../public/_share/header.php' ?>
     <!--END HEADER - START LIST-->
     <div class="container">
         <div class="row">
-            <div class="col-2 side-bar bg-secondary border">
+            <div class="col-2 border">
                 <h3 class="h4 text-center text-capitalize border-bottom pt-2 pb-2">Lọc vé</h3>
 
             </div>
-            <div class="col-10 listSearch border">
+            <div class="col-10 border">
                 <h3 class="h4 text-center text-capitalize border-bottom pt-2 pb-2">Danh sách vé xe</h3>
                 <?php foreach ($allData as $data) : ?>
                     <div class="row pt-2 border-bottom">

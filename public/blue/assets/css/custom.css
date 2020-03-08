@@ -628,7 +628,7 @@ a:hover.green2 {
 }
 
 .ftitle {
-    font-family: "Open Sans";
+    margin: 10px 0;
     Font-size: 16px;
     color: #666;
     font-weight: 700;

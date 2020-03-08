@@ -46,7 +46,7 @@ $roles = queryExecute($getRoleQuery, true);
             <div class="container-fluid">
                 <!-- Small boxes (Stat box) -->
                 <div class="row">
-                    
+
                 </div>
                 <!-- /.row -->
 
