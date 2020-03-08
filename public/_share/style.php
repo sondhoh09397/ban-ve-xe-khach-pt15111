@@ -8,8 +8,8 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.0.0-alpha14/css/tempusdominus-bootstrap-4.min.css" />
 <!-- main.css -->
 <link rel="stylesheet" href="<?php echo PUBLIC_URL . '/css/main.css' ?>">
-<!-- xử lý 2 bootstrap trùng nhau -->
-<!-- <link href="<?= THEME_ASSET_URL ?>dist/css/bootstrap.css" rel="stylesheet" media="screen"> -->
+<!-- Google Font: Source Sans Pro -->
+<link href="https://fonts.googleapis.com/css?family=Roboto:500&display=swap&subset=vietnamese" rel="stylesheet">
 <!-- Custom css in this theme -->
 <link href="<?= THEME_ASSET_URL ?>assets/css/custom.css" rel="stylesheet" media="screen">
 <!-- Carousel -->
