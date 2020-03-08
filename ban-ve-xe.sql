@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 07, 2020 at 08:16 AM
+-- Generation Time: Mar 08, 2020 at 09:55 AM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.4.3
 
@@ -46,6 +46,7 @@ CREATE TABLE `order_detail` (
   `order_id` int(11) NOT NULL,
   `unit_price` varchar(255) NOT NULL,
   `seat_number` varchar(255) NOT NULL,
+  `quantity` int(11) NOT NULL,
   `schedule_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -89,7 +90,8 @@ CREATE TABLE `routes` (
 --
 
 INSERT INTO `routes` (`id`, `distance`, `estimate_time`, `begin_point`, `end_point`) VALUES
-(1, '200km', '04:00:00.000000', 'Mỹ Đình', 'Nam Định');
+(1, '160km', '04:00:00.000000', 'Mỹ Đình', 'Nam Định'),
+(2, '180km', '04:20:00.000000', 'Hải Hậu', 'Giáp Bát');
 
 -- --------------------------------------------------------
 
@@ -102,8 +104,8 @@ CREATE TABLE `route_schedules` (
   `route_id` int(11) NOT NULL,
   `vehicle_id` int(11) NOT NULL,
   `price` varchar(255) NOT NULL,
-  `start_time` datetime(6) NOT NULL,
-  `end_time` datetime(6) NOT NULL
+  `start_time` varchar(255) NOT NULL,
+  `end_time` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -111,9 +113,8 @@ CREATE TABLE `route_schedules` (
 --
 
 INSERT INTO `route_schedules` (`id`, `route_id`, `vehicle_id`, `price`, `start_time`, `end_time`) VALUES
-(6, 1, 1, '150000', '2020-02-02 12:00:00.000000', '2020-02-02 12:00:00.000000'),
-(7, 1, 1, '150000', '2020-02-02 12:00:00.000000', '2020-02-02 12:00:00.000000'),
-(8, 1, 1, '120000', '2020-02-02 06:00:00.000000', '2020-02-02 06:00:00.000000');
+(8, 1, 1, '120000', '03/07/2020 9:30 AM', '03/07/2020 12:30 PM'),
+(9, 2, 1, '80000', '03/08/2020 9:46 AM', '03/10/2020 12:45 PM');
 
 -- --------------------------------------------------------
 
@@ -136,8 +137,7 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`id`, `name`, `email`, `password`, `phone_number`, `role_id`) VALUES
 (2, 'ThienTH', 'thienth@gmail.com', '$2y$10$4ijdV/Z4EA7fLZRnYGmhMeLo9.a7wgyBpCap1V5SjPKSTenSDTSFa', '123456789', 3),
-(3, 'Hồng Quân', 'helgrindxxx@gmail.com', '$2y$10$/9RCcuWqFwwH1eRgLbg3ue5a/7n2NPHOc0oPc9QYMoxOn6meQSWge', '0914946200', 2),
-(4, 'Nguyễn Văn A', 'anv@gmail.com', '$2y$10$evtG.fVBx3p8dfAGkOiVH.kk0eqZQILmXoLWKU3Mpd3J8uuMum1JO', '0987654311', 1);
+(3, 'Hồng Quân', 'helgrindxxx@gmail.com', '$2y$10$/9RCcuWqFwwH1eRgLbg3ue5a/7n2NPHOc0oPc9QYMoxOn6meQSWge', '0914946200', 2);
 
 -- --------------------------------------------------------
 
@@ -179,7 +179,8 @@ CREATE TABLE `vehicle_types` (
 
 INSERT INTO `vehicle_types` (`id`, `name`, `status`) VALUES
 (1, 'Xe Bus 2 tầng', 0),
-(2, 'Xe Limousine', 0);
+(2, 'Xe Limousine', 0),
+(3, 'Xe cút kít', 1);
 
 --
 -- Indexes for dumped tables
@@ -266,13 +267,13 @@ ALTER TABLE `roles`
 -- AUTO_INCREMENT for table `routes`
 --
 ALTER TABLE `routes`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `route_schedules`
 --
 ALTER TABLE `route_schedules`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `users`
@@ -284,13 +285,13 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `vehicles`
 --
 ALTER TABLE `vehicles`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `vehicle_types`
 --
 ALTER TABLE `vehicle_types`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- Constraints for dumped tables
